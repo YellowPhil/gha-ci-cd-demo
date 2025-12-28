@@ -46,18 +46,16 @@ jobs:
           script: |
             set -e
             echo "Deploy on $(hostname) at $(date)"
-            mkdir -p ~/apps/gha-ci-cd-demo
-            cd ~/apps/gha-ci-cd-demo
+            # Это пример деплоймента, у меня нет VPS и денег на него
+            # mkdir -p ~/apps/gha-ci-cd-demo
+            # cd ~/apps/gha-ci-cd-demo
 
-            if [ ! -d .git ]; then
-              git clone https://github.com/${{ github.repository }} ./
-            else
-              git fetch --all
-              git reset --hard origin/main
-            fi
+            # if [ ! -d .git ]; then
+            #   git clone https://github.com/${{ github.repository }} ./
+            # else
+            #   git fetch --all
+            #   git reset --hard origin/main
+            # fi
 
-            # build & (пример) запуск/рестарт
-            go build -o app .
-            # Если у тебя systemd — замени на реальные команды:
-            # sudo systemctl restart myapp
+            # go build -o app .
             echo "Deployed build OK"
